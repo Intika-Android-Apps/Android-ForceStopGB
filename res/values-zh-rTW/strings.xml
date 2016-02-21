@@ -97,5 +97,14 @@
 
     <!-- google play in-app billing -->
     <string name="play_verify_error">無法核實您的購買，請不要破解 Google Play 應用內結算。</string>
+    
+    <!-- dropdown list filter -->
+    <string name="dropdown_item0">All types</string>
+    <string name="dropdown_item1">Running apps</string>
+    <string name="dropdown_item2">System apps</string>
+    <string name="dropdown_item3">System apps without gapps</string>
+    <string name="dropdown_item4">Third party apps</string>
+    <string name="dropdown_item5">Enabled apps</string>
+    <string name="dropdown_item6">Google apps</string>
 
 </resources>
