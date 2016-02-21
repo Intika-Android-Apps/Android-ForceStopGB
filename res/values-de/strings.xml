@@ -98,5 +98,14 @@
 
     <!-- google play in-app billing -->
     <string name="play_verify_error">Kauf konnte nicht überprüft werden, bitte Google Play In-app-Käufe nicht hacken.</string>
+    
+        <!-- dropdown list filter -->
+    <string name="dropdown_item0">All types</string>
+    <string name="dropdown_item1">Running apps</string>
+    <string name="dropdown_item2">System apps</string>
+    <string name="dropdown_item3">System apps without gapps</string>
+    <string name="dropdown_item4">Third party apps</string>
+    <string name="dropdown_item5">Enabled apps</string>
+    <string name="dropdown_item6">Google apps</string>
 
 </resources>
