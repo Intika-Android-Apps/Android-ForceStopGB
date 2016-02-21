@@ -26,8 +26,8 @@
     <string name="remove">Blockieren entfernen</string>
 
     <!-- search hint -->
-    <string name="query_hint">\"-3\" für Benutzeranwendungen</string>
-    <string name="query_hint_system">\"-s\" für Systemanwendungen</string>
+    <string name="query_hint">Suchen und filtern</string>
+    <string name="query_hint_system">Suchen und filtern</string>
 
     <!-- main menu -->
     <string name="switch_theme">Schema wechseln</string>
