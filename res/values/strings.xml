@@ -26,8 +26,8 @@
     <string name="remove">Remove Prevent</string>
 
     <!-- search hint -->
-    <string name="query_hint">\"-3\" for user\'s apps</string>
-    <string name="query_hint_system">\"-s\" for system apps</string>
+    <string name="query_hint">Search and filter</string>
+    <string name="query_hint_system">Search and filter</string>
 
     <!-- main menu -->
     <string name="switch_theme">Switch theme</string>
@@ -98,5 +98,14 @@
 
     <!-- google play in-app billing -->
     <string name="play_verify_error">Fail to verify your purchase, please don\'t crack Google Play In-app Billing.</string>
+
+    <!-- dropdown list filter -->
+    <string name="dropdown_item0">All types</string>
+    <string name="dropdown_item1">Running apps</string>
+    <string name="dropdown_item2">System apps</string>
+    <string name="dropdown_item3">System apps without gapps</string>
+    <string name="dropdown_item4">Third party apps</string>
+    <string name="dropdown_item5">Enabled apps</string>
+    <string name="dropdown_item6">Google apps</string>
 
 </resources>
