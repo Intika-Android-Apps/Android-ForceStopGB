@@ -5,6 +5,24 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/filterlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dip"
+        android:paddingLeft="7dip"
+        android:paddingRight="7dip"
+        android:paddingTop="4dip">
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:spinnerMode="dropdown"
+            android:drawSelectorOnTop="true"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/filter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
