@@ -28,6 +28,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.EditText;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -54,7 +59,7 @@ import me.piebridge.prevent.ui.util.ReportUtils;
 import me.piebridge.prevent.ui.util.ThemeUtils;
 import me.piebridge.prevent.xposed.XposedUtils;
 
-public class PreventActivity extends FragmentActivity implements ViewPager.OnPageChangeListener, View.OnClickListener {
+public class PreventActivity extends FragmentActivity implements ViewPager.OnPageChangeListener, View.OnClickListener, OnItemSelectedListener {
 
     private ViewPager mPager;
     private String[] mPageTitles;
@@ -167,6 +172,65 @@ public class PreventActivity extends FragmentActivity implements ViewPager.OnPag
         } else {
             initialize();
         }
+    }
+
+    public void initSpinner() {
+        String[] dropList = new String[] {
+                getString(R.string.dropdown_item0),
+                getString(R.string.dropdown_item1),
+                getString(R.string.dropdown_item2),
+                getString(R.string.dropdown_item3),
+                getString(R.string.dropdown_item4),
+                getString(R.string.dropdown_item5),
+                getString(R.string.dropdown_item6)
+        };
+
+        Spinner dropdown = (Spinner)findViewById(R.id.spinner);
+        dropdown.setVisibility(View.VISIBLE);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, dropList);
+        dropdown.setAdapter(adapter);
+        dropdown.setOnItemSelectedListener(this);
+        dropdown.setSelection(0);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
+        EditText filterEditText = (EditText)findViewById(R.id.filter_query);
+        switch (position) {
+            case 0:
+                //-a for all apps (default show third party apps and gapps)
+                filterEditText.setText("");
+                break;
+            case 1:
+                //-r for running apps
+                filterEditText.setText("-r");
+                break;
+            case 2:
+                //-s for system apps
+                filterEditText.setText("-s");
+                break;
+            case 3:
+                //-sg for system apps excluding gapps
+                filterEditText.setText("-sg");
+                break;
+            case 4:
+                //-3 for third party apps
+                filterEditText.setText("-3");
+                break;
+            case 5:
+                //-e for enabled apps
+                filterEditText.setText("-e");
+                break;
+            case 6:
+                //-g for gapps, i.e. apps from google
+                filterEditText.setText("-g");
+                break;
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        // TODO Auto-generated method stub
     }
 
     private void initialize() {
@@ -556,6 +620,7 @@ public class PreventActivity extends FragmentActivity implements ViewPager.OnPag
     }
 
     private boolean refresh(int position, boolean force) {
+        initSpinner();
         String tag = getTag(position);
         int currentItem = mPager.getCurrentItem();
         PreventFragment fragment = (PreventFragment) getSupportFragmentManager().findFragmentByTag(tag);
@@ -870,6 +935,8 @@ public class PreventActivity extends FragmentActivity implements ViewPager.OnPag
         public CharSequence getPageTitle(int position) {
             return mPageTitles[position];
         }
+
+
     }
 
     @Override
